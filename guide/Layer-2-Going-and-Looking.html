@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><title>Layer 2 &middot; Going and Looking</title><style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --paper:#F3EEE3; --vellum:#E7DEC9; --ink:#14110C; --ox:#6E1A18; --brass:#B08A3E; }
+  body { font-family: Constantia, Georgia, serif; color:var(--ink); background:var(--paper); }
+  .page { width:210mm; height:296mm; padding:20mm 22mm; background:var(--paper);
+          page-break-after:always; position:relative; overflow:hidden; }
+  .page:last-child { page-break-after:auto; }
+  .mono { font-family: Consolas,"Courier New",monospace; letter-spacing:.16em; text-transform:uppercase; }
+  .label { font-size:8.5pt; color:var(--brass); margin-bottom:3mm; }
+  h1 { font-size:34pt; font-weight:bold; line-height:1.1; }
+  h2 { font-size:19pt; font-weight:bold; margin-bottom:3mm; line-height:1.18; }
+  h3 { font-family:Consolas,monospace; font-size:8pt; letter-spacing:.16em; text-transform:uppercase;
+       color:var(--brass); margin:6mm 0 1.5mm 0; }
+  .deck { font-size:11pt; line-height:1.45; color:var(--ox); margin-bottom:5mm; }
+  p { font-size:10.5pt; line-height:1.5; margin-bottom:3mm; }
+  li { font-size:10.5pt; line-height:1.5; margin-bottom:1.5mm; margin-left:5mm; }
+  figure { margin:5mm 0; }
+  .cap { font-family:Consolas,monospace; font-size:7pt; letter-spacing:.1em; text-transform:uppercase;
+         color:var(--brass); text-align:center; margin-top:2mm; }
+  .box { border-left:2mm solid var(--ox); background:var(--vellum); padding:3.5mm 4.5mm; margin-top:5mm; }
+  .box .mono { font-size:7.5pt; color:var(--ox); display:block; margin-bottom:1.2mm; }
+  .box p { margin:0; }
+  .cmd { font-family:Consolas,monospace; font-size:9.5pt; background:var(--ink); color:var(--paper);
+         padding:3mm 4mm; margin:3mm 0; line-height:1.6; }
+  /* A printed URL must never wrap. A line broken on a hyphen inside a slug copies out
+     as a different address that still looks right -- the 2026-08-06 fault. */
+  .url { white-space:nowrap; }
+  .footer { position:absolute; bottom:10mm; left:22mm; right:22mm; display:flex;
+            justify-content:space-between; font-size:7pt; color:var(--brass); }
+  .pgno { font-family:Consolas,monospace; font-size:7pt; letter-spacing:.1em; color:var(--brass); }
+  .pos { position:absolute; top:19mm; right:22mm; width:48mm; }
+  .rule { border:none; border-top:.3mm solid var(--ink); opacity:.25; margin:5mm 0; }
+  .cover { display:flex; flex-direction:column; justify-content:space-between; text-align:center; padding-top:44mm; }
+  .cover .word { font-size:24pt; font-weight:bold; letter-spacing:.3em; margin-top:9mm; }
+  .cover h1 { margin-top:14mm; }
+  .cover .sub { font-size:12pt; color:var(--ox); margin-top:5mm; line-height:1.5; }
+  table { width:100%; border-collapse:collapse; margin-top:3mm; }
+  th { font-family:Consolas,monospace; font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase;
+       color:var(--brass); text-align:left; padding:1.8mm 2mm; border-bottom:.4mm solid var(--ink); }
+  /* Table padding is load-bearing on page 5, which carries the glossary and is the longest
+     page in every guide. The page is a fixed 296mm with overflow:hidden -- content past the
+     bottom is DELETED, not reflowed. Re-run check_guide_overflow.py after touching this. */
+  td { font-size:9.5pt; line-height:1.36; padding:1.7mm 2mm; border-bottom:.2mm solid rgba(20,17,12,.2); vertical-align:top; }
+  td.k { width:38mm; font-weight:bold; }
+  text { font-family:Consolas,"Courier New",monospace; }
+  .t  { font-size:9.2px; letter-spacing:.05em; fill:#14110C; }
+  .tb { font-size:9.2px; letter-spacing:.12em; fill:#B08A3E; }
+  .tx { font-size:9.2px; letter-spacing:.05em; fill:#6E1A18; }
+  .ts { font-size:8px;   letter-spacing:.05em; fill:#14110C; opacity:.8; }
+  .tw { font-size:9.2px; letter-spacing:.05em; fill:#F3EEE3; }
+  .tsw{ font-size:8px;   letter-spacing:.05em; fill:#F3EEE3; }
+  .tsb{ font-size:8px;   letter-spacing:.12em; fill:#B08A3E; }
+</style></head><body><div class="page cover"><div><svg width="132" height="132" viewBox="0 0 200 200" style="display:block;margin:0 auto"><circle cx="100" cy="100" r="90" fill="none" stroke="#14110C" stroke-width="3.15"/><circle cx="100" cy="100" r="50.4" fill="none" stroke="#14110C" stroke-width="18"/><circle cx="162.51" cy="35.26" r="10.35" fill="#6E1A18"/></svg><div class="word mono">Outliers</div><h1>Going and Looking</h1><div class="sub">Layer 2 of 5 &nbsp;&middot;&nbsp; Four jobs that go out,<br>and bring people back.</div></div><div style="margin-bottom:15mm"><div class="mono" style="font-size:8.5pt;color:#B08A3E">Est. MMXXVI &nbsp;&middot;&nbsp; Outliers Accelerator</div></div></div><div class="page"><div class="label mono">Layer 2 &middot; Going and Looking</div><div class="pos"><svg viewBox="0 0 152 20" width="100%"><rect x="0" y="0" width="26" height="7" fill="#C9BCA0" stroke="#14110C" stroke-width="0.4"/><rect x="30" y="0" width="26" height="7" fill="#14110C" stroke="#14110C" stroke-width="0.4"/><rect x="60" y="0" width="26" height="7" fill="#E7DEC9" stroke="#14110C" stroke-width="0.4"/><rect x="90" y="0" width="26" height="7" fill="#E7DEC9" stroke="#14110C" stroke-width="0.4"/><rect x="120" y="0" width="26" height="7" fill="#E7DEC9" stroke="#14110C" stroke-width="0.4"/><text x="0" y="17" style="font-size:6px;letter-spacing:.14em;fill:#B08A3E">LAYER 2</text></svg></div><h2>Walking through the door</h2><div class="deck">Four jobs, given in the order of what it costs you to get one wrong. The first three cannot get you into trouble at all. The fourth is where you find out the whole set works, and it is chosen because being wrong there costs nothing.</div><h3>What the last layer left you with</h3><p>You have a browser that can go outside and nothing that goes anywhere. The doorman stands at a door nobody has walked through, and the only way to know it works is to send something through.</p><h3>What this layer builds</h3><p>Four jobs. One finds people. One undoes requests you sent yourself and forgot. One asks somebody to connect. One works out who said yes.</p><p>Everything they find goes into the records system you already built, as events, through the resolver you already wrote. Nothing here keeps its own list of people, because a second list of people is a second answer to who somebody is.</p><figure><svg viewBox="0 0 560 186" width="100%"><defs><marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#6E1A18"/></marker></defs>
+      <text class="tb" x="16" y="14">IN THE ORDER OF WHAT BEING WRONG COSTS YOU</text>
+      <g fill="#E7DEC9" stroke="#14110C" stroke-width="0.8">
+        <rect x="16" y="26" width="126" height="52"/><rect x="152" y="26" width="126" height="52"/>
+        <rect x="288" y="26" width="126" height="52"/>
+      </g>
+      <rect x="424" y="26" width="120" height="52" fill="#14110C"/>
+      <text class="t" x="26" y="46">1  Load a file</text>
+      <text class="ts" x="26" y="62">already on your machine</text>
+      <text class="t" x="162" y="46">2  Find people</text>
+      <text class="ts" x="162" y="62">reading, nothing more</text>
+      <text class="t" x="298" y="46">3  Undo your own</text>
+      <text class="ts" x="298" y="62">requests you sent</text>
+      <text class="tw" x="434" y="46">4  Ask to connect</text>
+      <text class="tsw" x="434" y="62">touches somebody else</text>
+      <line x1="16" y1="96" x2="544" y2="96" stroke="#14110C" stroke-width="0.3" opacity=".35"/>
+      <text class="tb" x="16" y="116">AND EVERY ONE OF THEM RUNS THE SAME THREE WAYS</text>
+      <g fill="#E7DEC9" stroke="#14110C" stroke-width="0.8">
+        <rect x="16" y="126" width="160" height="34"/><rect x="200" y="126" width="160" height="34"/>
+      </g>
+      <rect x="384" y="126" width="160" height="34" fill="none" stroke="#6E1A18" stroke-width="1.3"/>
+      <text class="t" x="26" y="141">LOOK</text><text class="ts" x="26" y="154">read it, write nothing</text>
+      <text class="t" x="210" y="141">PLAN</text><text class="ts" x="210" y="154">say what it would do</text>
+      <text class="tx" x="394" y="141">ACT</text><text class="ts" x="394" y="154">armed separately</text>
+      <path d="M180 143 L196 143" stroke="#6E1A18" stroke-width="1.1" marker-end="url(#a2)"/>
+      <path d="M364 143 L380 143" stroke="#6E1A18" stroke-width="1.1" marker-end="url(#a2)"/>
+    </svg><div class="cap">Four jobs, three modes each, one order.</div></figure><div class="footer"><span class="mono">Layer 2 &middot; Going and Looking</span><span class="pgno">2</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 2 &middot; How it works</div><h2>How it works</h2><div class="deck">One shape, four times. You will use the first mode far more than you expect to.</div>
+      <h3>Look, then plan, then act</h3>
+      <p>Every job here runs three ways. <strong>Look</strong> opens the page, reads it, and writes
+      nothing anywhere. <strong>Plan</strong> is what you get by default: it works out
+      exactly what it would do and tells you, without doing any of it. <strong>Act</strong> has to
+      be asked for separately.</p>
+      <p>The reason the first mode exists is not caution. It is that a page you have never read is
+      a page you cannot write a job against, and a page that changed overnight will fail in a way
+      that reads like your code being broken. Looking first tells you which of the two you have.</p>
+      <h3>The four jobs, and why this order</h3>
+      <ul>
+        <li><strong>Load a file.</strong> An export you already own, sitting on your own machine.
+        No sign-in, no reading of anything, no limits touched. Start here.</li>
+        <li><strong>Find people.</strong> Your own connections, a search, or whoever reacted to a
+        post. Reading only. The last of those is the strongest one you have if your network is
+        thin, because those people raised a hand on the subject themselves.</li>
+        <li><strong>Undo your own requests.</strong> Cancels invitations you sent and forgot.
+        Nobody else is touched, which is exactly why it is the first one you run for real.</li>
+        <li><strong>Ask to connect.</strong> The first job that reaches another person. It carries
+        none of your words, which is why it belongs here and a message does not.</li>
+      </ul>
+      <h3>Where what you find ends up</h3>
+      <p>Every job hands what it found to the event log in your records system, through the same
+      resolver every collector you built already uses. Somebody it cannot place gets a provisional
+      record of their own and is never merged into anybody. A merge decides whose history is right,
+      and that decision stays yours.</p>
+      <h3>The one that will surprise you</h3>
+      <p>A free search allowance is spent by <strong>searching</strong>, not by what comes back.
+      Cross it and you are cut to about three results a query until the first of the month. So one
+      wide search read deep is safe where fifty narrow ones are not, and the job stops and says so
+      rather than spending the rest of your allowance finding out.</p>
+      <p>Which means the search is the one job whose <strong>look</strong> mode is not free: a
+      search costs a search whether or not you keep the results. It is counted like any other, and
+      the job says so before it opens anything. The other three cost nothing to look at.</p><div class="footer"><span class="mono">Layer 2 &middot; Going and Looking</span><span class="pgno">3</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 2 &middot; Build it</div><h2>Build it</h2><div class="deck">One command. It asks you a few questions so what you get is yours, then does the work.</div><div class="cmd"><span class="url">git clone https://github.com/OUTLIERS-ai/outliers-gather-02-basics</span><br>cd outliers-gather-02-basics<br>python install.py</div><p>This needs Layer 1 already installed, and finds it by itself. Nothing reaches the outside world during installation.</p><h3>What it asks you, and why</h3><table><tr><th style="width:52mm">Question</th><th>What it changes</th></tr><tr><td class="k">After how many days is an unanswered request stale?</td><td>How long a request waits before the undo job will take it back. Nothing is taken back before then.</td></tr><tr><td class="k">How many searches a month should it assume you have?</td><td>Your allowance, which the search job counts down and stops at. Guessing low costs you nothing; guessing high spends it without warning.</td></tr><tr><td class="k">At most, how many people should one reading run bring back?</td><td>A ceiling on a single run, so a long list cannot turn into an afternoon of reading nobody asked for.</td></tr></table><h3>What you end up with</h3><ul><li>Four jobs, each of which will read a page and write nothing if you ask it to.</li><li>Everything they find flowing into the event log you already had.</li><li>A record of what you did, kept separately from what is true about the person.</li></ul><div class="footer"><span class="mono">Layer 2 &middot; Going and Looking</span><span class="pgno">4</span><span class="mono">Outliers</span></div></div><div class="page"><div class="label mono">Layer 2 &middot; Finishing</div><h2>Now use it</h2><div class="deck">Start with the one that cannot go wrong.</div><p>In the <strong>_engine</strong> folder inside your CRM:</p><div class='cmd'>python gather.py find export your-file.csv</div><p>It reads the file, tells you how many people it found, how many you already had, and how many it could not place. Nothing has been written yet. Run it again with <strong>--commit</strong> and those people are in your records.</p><p>Now the first one that touches the outside world, in its safest mode:</p><div class='cmd'>python gather.py undo --probe</div><p>It opens your sent invitations, reads them, and writes nothing. If it finds none, that is a clean result rather than a failure.</p><h3>If you already had something like this</h3><p>A test rather than an instruction. Take the last twenty people who came into your records and answer where each one came from. If you cannot, nothing you measure later will mean anything, because you will not know which source produced it.</p><hr class="rule"><h3>What this layer leaves unsolved</h3><p>All four work, and you typed every one of them yourself. Worse, you can only do this for one website. Nothing here tells you how any of it was arrived at, so the moment you want a different source, or a different platform, you are back to guessing.</p><div class="box"><span class="mono">Next: Layer 3 &middot; How this was built</span><p>The method behind layers 1 and 2, in enough detail to rebuild them yourself or point them at something we never touched.</p></div><h3>Words used in this guide</h3><table><tr><td class="k">Probe</td><td>A run that reads a page and writes nothing anywhere. It still asks the doorman, because opening a page is reaching outside.</td></tr><tr><td class="k">Commit</td><td>Asking for a job to actually do what it says it would do.</td></tr><tr><td class="k">Export</td><td>A file of your own data that a site will give you if you ask it.</td></tr><tr><td class="k">Event</td><td>One line in your records saying something happened, and when.</td></tr></table><div class="footer"><span class="mono">Layer 2 &middot; Going and Looking</span><span class="pgno">5</span><span class="mono">Outliers</span></div></div></body></html>
