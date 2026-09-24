@@ -37,6 +37,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+# What a member types to start Python. A Mac has `python3` and no plain `python`; Windows
+# keeps `python`, exactly as before.
+PY = "python3" if sys.platform == "darwin" else "python"
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import crm_paths                                            # noqa: E402
@@ -68,7 +72,7 @@ def cmd_status():
         saved, note = gather_browser.session_status()
     except Exception:                                       # noqa: BLE001
         note = "could not be read"
-    print("  signed in           %s" % ("yes" if saved else "not yet - run: python gather.py login"))
+    print("  signed in           %s" % ("yes" if saved else "not yet - run: %s gather.py login" % PY))
 
     print("")
     print("THE TWO SWITCHES")
@@ -131,13 +135,13 @@ def cmd_login(argv):
 
 USAGE = """gather - Layer 2, going out and bringing people back
 
-  python gather.py status              what is set, and what is allowed right now
-  python gather.py login [site]        sign in by hand, once (default: linkedin)
+  %(py)s gather.py status              what is set, and what is allowed right now
+  %(py)s gather.py login [site]        sign in by hand, once (default: linkedin)
 
-  python gather.py find <source> [--probe] [--commit]
-  python gather.py undo     [--probe] [--commit]
-  python gather.py ask      [--probe] [--commit]
-  python gather.py accepted [--probe] [--commit] [--confirm]
+  %(py)s gather.py find <source> [--probe] [--commit]
+  %(py)s gather.py undo     [--probe] [--commit]
+  %(py)s gather.py ask      [--probe] [--commit]
+  %(py)s gather.py accepted [--probe] [--commit] [--confirm]
 
   sources for find:
     export <file.csv>      a file already on your machine, nothing goes outside
@@ -151,7 +155,7 @@ USAGE = """gather - Layer 2, going out and bringing people back
     --commit     do it, one action at a time, each one asked for first
 
 Run this from the _engine folder inside your CRM.
-"""
+""" % {"py": PY}
 
 
 def main(argv):

@@ -42,6 +42,10 @@ import sys
 from contextlib import contextmanager
 from pathlib import Path
 
+# What a member types to start Python. A Mac has `python3` and no plain `python`; Windows
+# keeps `python`, exactly as before.
+PY = "python3" if sys.platform == "darwin" else "python"
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import gather_settings as gs                                # noqa: E402
@@ -91,7 +95,7 @@ def doorman(action):
         print("  Not now: %s." % why)
         print("")
         print("  Nothing was opened and nothing was written. Run")
-        print("      python gather.py status")
+        print("      %s gather.py status" % PY)
         print("  to see every limit and which one stopped this.")
         print("")
     return ok
@@ -153,7 +157,7 @@ def one_window(site="linkedin"):
         if not gb.looks_signed_in(page, site):
             print("")
             print("  I cannot see your account on that page. Sign in once:")
-            print("      python gather.py login")
+            print("      %s gather.py login" % PY)
             print("")
             yield None
         else:

@@ -53,6 +53,10 @@ import time
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+# What a member types to start Python. A Mac has `python3` and no plain `python`; Windows
+# keeps `python`, exactly as before.
+PY = "python3" if sys.platform == "darwin" else "python"
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import gather_limits                                        # noqa: E402
@@ -328,7 +332,7 @@ def run(argv):
         print("  Nobody is waiting. Everybody your records know about is either")
         print("  connected to you, already asked, or on hold. Bring some people")
         print("  back first:")
-        print("      python gather.py find connections --commit")
+        print("      %s gather.py find connections --commit" % PY)
         print("")
         return 0
 
@@ -348,7 +352,7 @@ def run(argv):
         print("")
         print("  Nothing was opened and nothing was sent. To look at the first")
         print("  person's page without touching anything:")
-        print("      python gather.py ask --probe")
+        print("      %s gather.py ask --probe" % PY)
         print("")
         return 0
 

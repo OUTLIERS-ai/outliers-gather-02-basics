@@ -56,6 +56,10 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
 
+# What a member types to start Python. A Mac has `python3` and no plain `python`; Windows
+# keeps `python`, exactly as before.
+PY = "python3" if sys.platform == "darwin" else "python"
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import crm_paths                                            # noqa: E402
@@ -569,7 +573,7 @@ def from_search(page, terms, mode, tally, recorder):
     if not terms:
         print("")
         print("  Give it something to search for:")
-        print("      python gather.py find search \"operations manager manufacturing\"")
+        print("      %s gather.py find search \"operations manager manufacturing\"" % PY)
         return 2
 
     ok, why = allowance_check()
@@ -804,7 +808,7 @@ def from_reactions(page, post_url, mode, tally, recorder):
     if not post_url:
         print("")
         print("  Give it the address of a post:")
-        print("      python gather.py find reactions https://www.linkedin.com/posts/...")
+        print("      %s gather.py find reactions https://www.linkedin.com/posts/..." % PY)
         return 2
 
     walk.open_page(page, str(post_url).split("?")[0])
@@ -887,10 +891,10 @@ def run(argv):
         print("")
         print("  Which source? One of: %s" % ", ".join(SOURCES))
         print("")
-        print("      python gather.py find export <file.csv>")
-        print("      python gather.py find connections")
-        print("      python gather.py find search \"<terms>\"")
-        print("      python gather.py find reactions <post-url>")
+        print("      %s gather.py find export <file.csv>" % PY)
+        print("      %s gather.py find connections" % PY)
+        print("      %s gather.py find search \"<terms>\"" % PY)
+        print("      %s gather.py find reactions <post-url>" % PY)
         print("")
         return 2
 

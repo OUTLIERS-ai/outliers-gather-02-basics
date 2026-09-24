@@ -25,6 +25,17 @@ import sys
 import tempfile
 from pathlib import Path
 
+# What a member types to start Python. A Mac has `python3` and no plain `python`; Windows
+# keeps `python`, exactly as before.
+PY = "python3" if sys.platform == "darwin" else "python"
+
+# The 2 lines that get Playwright. On a Mac they go through `python3 -m`, because pip can put
+# its own `pip` and `playwright` commands in a folder Terminal does not search.
+if sys.platform == "darwin":
+    PLAYWRIGHT_STEPS = ["python3 -m pip install playwright", "python3 -m playwright install chromium"]
+else:
+    PLAYWRIGHT_STEPS = ["pip install playwright", "playwright install chromium"]
+
 LAYER = 2
 LAYER_NAME = "Going out and bringing people back"
 SERIES = "Gather"
@@ -346,23 +357,23 @@ def main():
         say("  ONE MORE STEP before any job can open a page. The browser needs")
         say("  Playwright, which is not installed yet. In this same terminal, run:")
         say()
-        say("      pip install playwright")
-        say("      playwright install chromium")
+        for step in PLAYWRIGHT_STEPS:
+            say("      " + step)
         say()
         say("  The second line downloads the browser itself, so it takes a minute.")
 
     say()
     say("  Now, in a terminal in that _engine folder:")
     say()
-    say("      python gather.py status")
+    say("      %s gather.py status" % PY)
     say()
     say("  Then the job that never leaves your machine:")
     say()
-    say("      python gather.py find export <file.csv> --commit")
+    say("      %s gather.py find export <file.csv> --commit" % PY)
     say()
     say("  Then look at a page without touching it:")
     say()
-    say("      python gather.py undo --probe")
+    say("      %s gather.py undo --probe" % PY)
     say()
     return 0
 
